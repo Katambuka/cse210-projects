@@ -10,7 +10,7 @@ public class Resume
     public void Display()
     {
         Console.WriteLine($"Name: {_name}");
-        Console.WriteLine("Jobs:");
+        Console.WriteLine("jobs:");
 
         // Notice the use of the custom data type "Job" in this loop
         foreach (Job job in _jobs)
