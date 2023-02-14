@@ -1,5 +1,5 @@
 
-class Program
+internal class Program
 {
     // The main entry point for the program.
     static void Main(string[] args)

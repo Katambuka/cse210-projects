@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Globalization;
 
-
 class Journal
 {
+    static void Main(string[] args);
     private List<Entry> entries = new List<Entry>()
     {
-        
+
     };
     private List<string> prompts = new List<string>() {
         "Who was the most interesting person I interacted with today?",
@@ -51,9 +51,9 @@ class Journal
     {
         Console.WriteLine("Enter a filename to save the journal to:");
         string filename = Console.ReadLine();
-        
+
         using (StreamWriter outputFile = new StreamWriter(filename))
-        
+
         foreach (Entry entry in entries)
         {
             outputFile.WriteLine();
@@ -73,16 +73,17 @@ class Journal
 
         foreach (string line in lines)
         {
-            
+
         }
     }
 
     public void ShowMenu()
     {
+        Console.WriteLine("Hello Develop02 World!");
         string input = "";
         while (input != "5")
         {
-            
+
             Console.WriteLine("Journal Menu App");
             Console.WriteLine("1. Write a new entry");
             Console.WriteLine("2. Display the journal");
@@ -142,7 +143,7 @@ public static void Main()
 {
     Journal journal = new Journal();
     journal.ShowMenu();
-}
+
 }
 
-
+}
