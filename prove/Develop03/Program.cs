@@ -31,7 +31,7 @@ namespace Namespace
             while (quitString != "quit")
             {
                 reference.PrintFullReference();
-                foreach (Word word in scripture.getScriptureText())
+                foreach (Word word in scripture.GetScriptureText())
                 {
                     Console.Write(word.showWord() + " ");
                 }
@@ -39,8 +39,8 @@ namespace Namespace
                 quitString = Console.ReadLine();
                 for (int i = 0; i < 3; i++)
                 {
-                    randomNumber = random.Next(0, scripture.getScriptureText().Count);
-                    scripture.getScriptureText()[randomNumber].setHidden(true);
+                    randomNumber = random.Next(0, scripture.GetScriptureText().Count);
+                    scripture.GetScriptureText()[randomNumber].setHidden(true);
                     Console.WriteLine(randomNumber);
                 }
             }
@@ -90,23 +90,21 @@ namespace Namespace
 
         class Scripture
         {
-            private Reference reference;
-            private List<Word> scriptureText;
             public Scripture(Reference referenceParam, List<Word> textParam)
             {
                 Reference = referenceParam;
                 ScriptureText = textParam;
             }
 
-            private Reference Reference { get => reference; set => reference = value; }
-            private List<Word> ScriptureText { get => scriptureText; set => scriptureText = value; }
+            private Reference Reference { get; set; }
+            private List<Word> ScriptureText { get; set; }
 
-            public Reference getReference()
+            public Reference GetReference()
             {
                 return Reference;
 
             }
-            public List<Word> getScriptureText()
+            public List<Word> GetScriptureText()
             {
                 return ScriptureText;
             }
@@ -120,7 +118,7 @@ namespace Namespace
                 WordVal = wordParam;
                 foreach (char x in WordVal)
                 {
-                    HiddenWord = HiddenWord + "_";
+                    HiddenWord += "_";
                 }
             }
             public Word(string wordParam, bool isHiddenParam)
@@ -131,16 +129,15 @@ namespace Namespace
 
                 foreach (char x in WordVal)
                 {
-                    HiddenWord = HiddenWord + "_";
+                    HiddenWord += "_";
                 }
             }
 
             private string hiddenWord;
-            private string wordVal;
             private bool isHidden;
 
             public string HiddenWord { get => hiddenWord; set => hiddenWord = value; }
-            public string WordVal { get => wordVal; set => wordVal = value; }
+            public string WordVal { get; set; }
             public bool IsHidden { get => isHidden; set => isHidden = value; }
 
             public string showWord()
