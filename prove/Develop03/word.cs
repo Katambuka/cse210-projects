@@ -31,7 +31,7 @@ namespace Namespace
         public string WordVal { get; set; }
         public bool IsHidden { get => isHidden; set => isHidden = value; }
 
-        public string ShowWord()
+        public string showWord()
         {
             if (IsHidden == true)
             {
