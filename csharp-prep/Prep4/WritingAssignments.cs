@@ -1,4 +1,4 @@
-public class Assignment
+public partial class Assignment
 {
     private string _studentName;
     private string _topic;
@@ -25,10 +25,10 @@ public class Assignment
     }
 }
 
-public class MathAssignment : Assignment
+public partial class MathAssignment : Assignment
 {
-    private string _textbookSection;
-    private string _problems;
+    private readonly string _textbookSection;
+    private readonly string _problems;
 
     public MathAssignment(string studentName, string topic, string textbookSection, string problems)
         : base(studentName, topic)
@@ -43,7 +43,7 @@ public class MathAssignment : Assignment
     }
 }
 
-public class WritingAssignment : Assignment
+public partial class WritingAssignment : Assignment
 {
     private string _title;
 
@@ -59,23 +59,24 @@ public class WritingAssignment : Assignment
         return $"{_title} by {studentName}";
     }
 }
-public class Program
+
+public static partial class Program
 {
     static void Main(string[] args)
     {
         Console.WriteLine("Hello World!");
 
-    // Create a base "Assignment" object
-    Assignment a1 = new Assignment("Samuel Bennett", "Multiplication");
-    Console.WriteLine(a1.GetSummary());
+        // Create a base "Assignment" object
+        Assignment a1 = new Assignment("Samuel Bennett", "Multiplication");
+        Console.WriteLine(a1.GetSummary());
 
-    // Now create the derived class assignments
-    MathAssignment a2 = new MathAssignment("Roberto Rodriguez", "Fractions", "7.3", "8-19");
-    Console.WriteLine(a2.GetSummary());
-    Console.WriteLine(a2.GetHomeworkList());
+        // Now create the derived class assignments
+        MathAssignment a2 = new MathAssignment("Roberto Rodriguez", "Fractions", "7.3", "8-19");
+        Console.WriteLine(a2.GetSummary());
+        Console.WriteLine(a2.GetHomeworkList());
 
-    WritingAssignment a3 = new WritingAssignment("Mary Waters", "European History", "The Causes of World War II");
-    Console.WriteLine(a3.GetSummary());
-    Console.WriteLine(a3.GetWritingInformation());
+        WritingAssignment a3 = new WritingAssignment("Mary Waters", "European History", "The Causes of World War II");
+        Console.WriteLine(a3.GetSummary());
+        Console.WriteLine(a3.GetWritingInformation());
     }
 }

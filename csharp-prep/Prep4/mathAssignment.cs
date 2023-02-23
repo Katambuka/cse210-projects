@@ -11,14 +11,16 @@ public class Assignment
         _topic = topic;
     }
 
-    public string GetStudentName()
+    public string StudentName
     {
-        return _studentName;
+        get { return _studentName; }
+        set { _studentName = value; }
     }
 
-    public string GetTopic()
+    public string Topic
     {
-        return _topic;
+        get { return _topic; }
+        set { _topic = value; }
     }
 
     public string GetSummary()
@@ -39,6 +41,18 @@ public class MathAssignment : Assignment
         _problems = problems;
     }
 
+    public string TextbookSection
+    {
+        get { return _textbookSection; }
+        set { _textbookSection = value; }
+    }
+
+    public string Problems
+    {
+        get { return _problems; }
+        set { _problems = value; }
+    }
+
     public string GetHomeworkList()
     {
         return $"Section {_textbookSection} Problems {_problems}";
@@ -55,15 +69,20 @@ public class WritingAssignment : Assignment
         _title = title;
     }
 
+    public string Title
+    {
+        get { return _title; }
+        set { _title = value; }
+    }
+
     public string GetWritingInformation()
     {
-        string studentName = GetStudentName();
-
+        string studentName = StudentName;
         return $"{_title} by {studentName}";
     }
 }
 
-public class Program
+static partial class Program
 {
     static void Main(string[] args)
     {
@@ -72,12 +91,14 @@ public class Program
         Assignment a1 = new Assignment("Samuel Bennett", "Multiplication");
         Console.WriteLine(a1.GetSummary());
 
-        MathAssignment a2 = new("Roberto Rodriguez", "Fractions", "7.3", "8-19");
+        MathAssignment a2 = new MathAssignment("Roberto Rodriguez", "Fractions", "7.3", "8-19");
         Console.WriteLine(a2.GetSummary());
         Console.WriteLine(a2.GetHomeworkList());
 
         WritingAssignment a3 = new WritingAssignment("Mary Waters", "European History", "The Causes of World War II");
         Console.WriteLine(a3.GetSummary());
         Console.WriteLine(a3.GetWritingInformation());
+
+        Console.ReadKey();
     }
 }
