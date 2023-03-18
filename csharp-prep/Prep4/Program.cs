@@ -1,76 +1,14 @@
-public partial class Assignment
+using System;
+public static class Program
 {
-    private string _studentName;
-    private string _topic;
-
-    public Assignment(string studentName, string topic)
-    {
-        _studentName = studentName;
-        _topic = topic;
-    }
-
-    public string GetStudentName()
-    {
-        return _studentName;
-    }
-
-    public string GetTopic()
-    {
-        return _topic;
-    }
-
-    public string GetSummary()
-    {
-        return _studentName + " - " + _topic;
-    }
-}
-
-public partial class MathAssignment : Assignment
-{
-    private string _textbookSection;
-    private readonly string _problems;
-
-    public MathAssignment(string studentName, string topic, string textbookSection, string problems)
-        : base(studentName, topic)
-    {
-        _textbookSection = textbookSection;
-        _problems = problems;
-    }
-
-    public string GetHomeworkList()
-    {
-        return $"Section {_textbookSection} Problems {_problems}";
-    }
-}
-
-public partial class WritingAssignment : Assignment
-{
-    private string _title;
-
-    public WritingAssignment(string studentName, string topic, string title)
-        : base(studentName, topic)
-    {
-        _title = title;
-    }
-
-    public string GetWritingInformation()
-    {
-        string studentName = GetStudentName();
-
-        return $"{_title} by {studentName}";
-    }
-}
-
-public static partial class Program
-{
-    private static void Main(string[] args)
+    public static void Main(string[] args)
     {
         Console.WriteLine("Hello Learning04 World!");
 
         Assignment a1 = new Assignment("Samuel Bennett", "Multiplication");
         Console.WriteLine(a1.GetSummary());
 
-        MathAssignment a2 = new("Roberto Rodriguez","Fractions", "7.3", "8-19");
+        MathAssignment a2 = new MathAssignment("Roberto Rodriguez","Fractions", "7.3", "8-19");
         Console.WriteLine(a2.GetSummary());
         Console.WriteLine(a2.GetHomeworkList());
 
