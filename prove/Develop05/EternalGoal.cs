@@ -1,64 +1,26 @@
-
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Globalization;
-using System.Threading;
-using Namespace2;
 
-namespace Namespace3
+// Eternal goal class where user earns points every time they mark goal as complete
+public class EternalGoal : Goal
 {
-    class EternalGoal : GoalBase
+    private int count;
+
+    public string V { get; }
+
+    public EternalGoal(string name, int points) : base(name, points)
     {
-        protected int _timesCompleted;
-        private string _goalName;
-        private string _goalDescription;
-        private readonly int _goalPoints;
-        private readonly string _completeMark;
-        private string _goalType;
-        public EternalGoal(string goalString)
-        {
-            _goalType = "EternalGoal";
-            string[] splitString = goalString.Split(',');
-            _goalName = splitString[0];
-            _goalDescription = splitString[1];
-            _goalPoints = Int32.Parse(splitString[2]);
-        }
+        count = 0;
+    }
+    // Increment count and return points earned
+    public int Increment()
+    {
+        count++;
+        return Points;
+    }
 
-        public EternalGoal(string goalName, string goalDescription, string goalPoints)
-        {
-            _goalName = goalName;
-            _goalDescription = goalDescription;
-            _goalPoints = Int32.Parse(goalPoints);
-            _completeMark = " ";
-            _goalType = "EternalGoal";
-
-            _timesCompleted = 0;
-        }
-
-        new public void UpdateGoal()
-        {
-            _timesCompleted++;
-        }
-        public new int GetPoints()
-        {
-            return _goalPoints;
-        }
-        public static new bool IsComplete()
-        {
-            return false;
-        }
-        public int GetLoadedPoints()
-        {
-            return _goalPoints * _timesCompleted;
-        }
-        public string GetSaveGoal()
-        {
-            return _goalType + ":" + _goalName + "," + _goalDescription + "," + _goalPoints;
-        }
-        public new string DisplayGoalInfo()
-        {
-            return " [ ] " + _goalName + " (" + _goalDescription + ")";
-        }
+    public override string DisplayProgress()
+    {
+        return string.Format("{0} (completed {1} times)", Name, count);
     }
 }
