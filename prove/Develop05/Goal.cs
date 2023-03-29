@@ -49,4 +49,6 @@ public abstract class Goal
     {
         throw new NotImplementedException();
     }
+
+    internal abstract void AddEvent(string description, double value);
 }

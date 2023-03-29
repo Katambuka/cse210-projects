@@ -23,4 +23,9 @@ public class EternalGoal : Goal
     {
         return string.Format("{0} (completed {1} times)", Name, count);
     }
+
+    internal override void AddEvent(string description, double value)
+    {
+        throw new NotImplementedException();
+    }
 }

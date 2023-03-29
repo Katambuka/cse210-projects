@@ -11,4 +11,9 @@ public class SimpleGoal : Goal
     {
         return Completed ? "[X] " + Name : "[ ] " + Name;
     }
+
+    internal override void AddEvent(string description, double value)
+    {
+        throw new NotImplementedException();
+    }
 }

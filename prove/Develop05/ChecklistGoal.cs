@@ -11,11 +11,6 @@ public class ChecklistGoal : Goal
         count = 0;
     }
 
-    public ChecklistGoal(string v)
-    {
-        this.v = v;
-    }
-
     // Increment count and return points earned, or bonus points if target is reached
     public int Increment()
     {
@@ -34,5 +29,10 @@ public class ChecklistGoal : Goal
     public override string DisplayProgress()
     {
         return string.Format("{0} (completed {1}/{2} times)", Name, count, targetCount);
+    }
+
+    internal override void AddEvent(string description, double value)
+    {
+        throw new NotImplementedException();
     }
 }

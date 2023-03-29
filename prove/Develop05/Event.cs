@@ -10,4 +10,13 @@ internal class Event
         this.value = value;
         this.date = date;
     }
+
+    public Event(string description, double value1, DateTime date)
+    {
+        this.description = description;
+        Value = value1;
+        this.date = date;
+    }
+
+    public double Value { get; }
 }
