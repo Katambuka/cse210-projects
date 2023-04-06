@@ -13,7 +13,7 @@ class Program
         CyclingActivity cycling = new CyclingActivity(DateTime.Now, 45, 15.0);
         activities.Add(cycling);
 
-        SwimmingActivity swimming = new SwimmingActivity(DateTime.Now, 60, 20);
+        SwimmingActivity swimming = new(DateTime.Now, 60, 20);
         activities.Add(swimming);
 
         Console.WriteLine("\nMy Fitness Activity Tracker Program:");
